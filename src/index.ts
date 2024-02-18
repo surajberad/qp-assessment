@@ -1,11 +1,8 @@
-import express, { Express, Request, Response } from "express";
+import Server from "./server";
+import dotenv from "dotenv";
+dotenv.config();
 
-const app: Express = express();
+const server = new Server(4000);
 
-app.listen(4000, () => {
-  console.log("App running on 4000");
-});
-
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hiiii");
-});
+server.listen();
+server.init();
